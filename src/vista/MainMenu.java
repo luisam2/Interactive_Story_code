@@ -122,82 +122,89 @@ public class MainMenu extends PApplet {
 	public void settings () {
 		size (1200,806);
 		screen = 1;                              
-	} //here commit
+	} 
 
 	public void setup () {
 
-	//LOAD IMAGES 
+	/***LOAD IMAGES**/
 		//START
-			start = loadImage ("images/start.png");
-			intro = loadImage ("images/intro.png");
-			intro2 = loadImage ("images/intro2.png");
-			intro3 = loadImage ("images/intro3.png");
-			stage1 = loadImage ("images/stage1.png");
-			stage2 = loadImage ("images/stage2.png");
-			//button = loadImage ("images/button.png");
+		start = loadImage ("images/start.png");
+		intro = loadImage ("images/intro.png");
+		intro2 = loadImage ("images/intro2.png");
+		intro3 = loadImage ("images/intro3.png");
+		stage1 = loadImage ("images/stage1.png");
+		stage2 = loadImage ("images/stage2.png");
+		end = loadImage ("images/end.png");
 			
-		//PARALLAX
-			parallax  = loadImage ("images/fondo.jpg");
+	//PARALLAX
+		parallax  = loadImage ("images/fondo.jpg");
 		
-		//CHARACTERS
+	/***CHARACTERS***/
 		//ALICE
-			alice1 = loadImage ("images/alice1.png");
-			alice2 = loadImage ("images/alice2.png");
-			alice3 = loadImage ("images/alice3.png");
-			alice4 = loadImage ("images/alice4.png");
-			alice5 = loadImage ("images/alice5.png");
+		alice1 = loadImage ("images/alice1.png");
+		alice2 = loadImage ("images/alice2.png");
+		alice3 = loadImage ("images/alice3.png");
+		alice4 = loadImage ("images/alice4.png");
+		alice5 = loadImage ("images/alice5.png");
 			
 		//THE MAD HATTER
-			madhat2 = loadImage ("images/madhat2.png");
-			madhat3 = loadImage ("images/madhat3.png");
-			madhat4 = loadImage ("images/madhat4.png");
-			madhat5 = loadImage ("images/madhat5.png");
-			madhat6 = loadImage ("images/madhat6.png");
+		madhat2 = loadImage ("images/madhat2.png");
+		madhat3 = loadImage ("images/madhat3.png");
+		madhat4 = loadImage ("images/madhat4.png");
+		madhat5 = loadImage ("images/madhat5.png");
+		madhat6 = loadImage ("images/madhat6.png");
 			
 		//BUNNY
-			bunny2 = loadImage ("images/liebre2.png");
-			bunny3 = loadImage ("images/liebre3.png");
-			bunny4 = loadImage ("images/liebre4.png");
-			bunny5 = loadImage ("images/liebre5.png");
+		bunny2 = loadImage ("images/liebre2.png");
+		bunny3 = loadImage ("images/liebre3.png");
+		bunny4 = loadImage ("images/liebre4.png");
+		bunny5 = loadImage ("images/liebre5.png");
 		
 		//CAT
-			cat1 = loadImage ("images/cat1.png");
-			cat2 = loadImage ("images/cat2.png");
+		cat1 = loadImage ("images/cat1.png");
+		cat2 = loadImage ("images/cat2.png");
 			
 		//ITEMS
-			frame = loadImage ("images/marco.png");
-			teapot1 = loadImage ("images/tetera.png");
-			catchair = loadImage ("images/sillagato.png");
-			table = loadImage ("images/mesa.png");
-			chairs = loadImage ("images/sillas.png");
+		frame = loadImage ("images/marco.png");
+		teapot1 = loadImage ("images/tetera.png");
+		catchair = loadImage ("images/sillagato.png");
+		table = loadImage ("images/mesa.png");
+		chairs = loadImage ("images/sillas.png");
+		
+		//SELECTIONS
+		sel_teapot = loadImage ("images/sel_teapot.png");;
+		sel_alice1 = loadImage ("images/sel_alice1.png");;
+		sel_alice2 = loadImage ("images/sel_alice2.png");;
+		sel_bunny1 = loadImage ("images/sel_bunny1.png");;
+		sel_mad = loadImage ("images/sel_mad.png");;
+		sel_cat = loadImage ("images/sel_cat.png");;
 			
 		//DIALOGUES IMAGES
-			dialogue1img = loadImage ("images/dialogue1img.png");
-			dialogue2img = loadImage ("images/dialogue2img.png");
-			dialogue3img = loadImage ("images/dialogue3img.png");
-			dialogue4img = loadImage ("images/dialogue4img.png");
-			dialogue5img = loadImage ("images/dialogue5img.png");
-			dialogue6img = loadImage ("images/dialogue6img.png");
-			dialogue7img = loadImage ("images/dialogue7img.png");
-			dialogue8img = loadImage ("images/dialogue8img.png");
-			dialogue9img = loadImage ("images/dialogue9img.png");
-			dialogue10img = loadImage ("images/dialogue10img.png");
-			dialogue11img = loadImage ("images/dialogue11img.png");
-			dialogue12img = loadImage ("images/dialogue12img.png");
+		dialogue1img = loadImage ("images/dialogue1img.png");
+		dialogue2img = loadImage ("images/dialogue2img.png");
+		dialogue3img = loadImage ("images/dialogue3img.png");
+		dialogue4img = loadImage ("images/dialogue4img.png");
+		dialogue5img = loadImage ("images/dialogue5img.png");
+		dialogue6img = loadImage ("images/dialogue6img.png");
+		dialogue7img = loadImage ("images/dialogue7img.png");
+		dialogue8img = loadImage ("images/dialogue8img.png");
+		dialogue9img = loadImage ("images/dialogue9img.png");
+		dialogue10img = loadImage ("images/dialogue10img.png");
+		dialogue11img = loadImage ("images/dialogue11img.png");
+		dialogue12img = loadImage ("images/dialogue12img.png");
 
 		//INITIALIZE BOOLEANS + VARIABLES
-			teapot = false;
-			alice = false;
-			madhat = false;
-			bunny = false;
-			cat = false;
-		
-			clickcounter1 = 0; //TEAPOT
-			clickcounter2 = 0; //ALICE
-			clickcounter3 = 0; //THE MAD HATTER
-			clickcounter4 = 0; //BUNNY 
-			clickcounter5 = 0; //CAT
-			
+		teapot = false;
+		alice = false;
+		bunny = false;
+		madhat = false;
+		cat = false;
+		//
+		clickcounter1 = 0; //TEAPOT
+		clickcounter2 = 0; //ALICE
+		clickcounter4 = 0; //BUNNY
+		clickcounter3 = 0; //THE MAD HATTER
+		clickcounter5 = 0; //CAT
 			
 	} //End setup
 
