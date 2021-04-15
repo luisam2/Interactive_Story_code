@@ -1,26 +1,24 @@
 
 
 package vista;
-//import java.lang.reflect.Array;
-//import java.util.ArrayList;
 
+/*import java.lang.reflect.Array;
+import java.util.ArrayList;
+import controlador.Movimiento;*/
 import processing.core.PApplet;
-//import controlador.Movimiento;
-//import modelo.Escena;
+import modelo.Escena;
 import processing.core.PImage;
 
 
 public class MainMenu extends PApplet {	
-
 	public static void main(String[] args) {
 
 		String[] processingArgs = {"MainMenu"};
-		MainMenu Sketch = new MainMenu();
-		PApplet.runSketch(processingArgs, Sketch);
+		MainMenu mySketch = new MainMenu();
+		PApplet.runSketch(processingArgs, mySketch);
 	} //end main
 
-	///////////////////VARIABLES////////////////////
-
+	/****VARIABLES***/
 	//FOR THE IMAGES
 		//COMPLETED SCREENS
 		PImage start;
@@ -29,8 +27,8 @@ public class MainMenu extends PApplet {
 		PImage intro3;
 		PImage stage1;
 		PImage stage2;
-		//PImage button;
-		
+		PImage end;
+	
 	//PARALLAX
 		PImage parallax;
 	
@@ -66,6 +64,14 @@ public class MainMenu extends PApplet {
 		PImage table;
 		PImage chairs;
 		
+		//SELECTIONS
+		PImage sel_teapot;
+		PImage sel_alice1;
+		PImage sel_alice2;
+		PImage sel_bunny1;
+		PImage sel_mad;
+		PImage sel_cat;
+
 		//DIALOGUES IMAGES
 		PImage dialogue1img;
 		PImage dialogue2img;
@@ -99,8 +105,7 @@ public class MainMenu extends PApplet {
 		boolean madhat;
 		boolean bunny;
 		boolean cat;
-		
-	//VARIABLES
+	//
 		int screen;
 		int clickcounter1;
 		int clickcounter2;
@@ -108,15 +113,16 @@ public class MainMenu extends PApplet {
 		int clickcounter4;
 		int clickcounter5;
 		int segundos;
-	//MODEL
-		
 	
-	////////////////////////END/////////////////////////////////////
+	//MODEL
+		Escena palabra;
+		
+	//END
 	
 	public void settings () {
 		size (1200,806);
-		screen = 1;                           
-	} 
+		screen = 1;                              
+	} //here commit
 
 	public void setup () {
 
