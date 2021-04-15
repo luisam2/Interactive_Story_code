@@ -1,4 +1,18 @@
 
+/****************************************************** IMPORTANTE **********************************************************/	
+/**************************************************************************************************************************/	
+
+/* ESTA ALGO PESADO POR LAS ILUSTRACIONES HEHE
+ * 
+ * INTERACCIONES EN ORDEN
+ * EFECTO PARALLAX
+ * 1 ALICIA (PARADA) 
+ * 2 ALICIA (SENTADA)
+ * 3 TETERA 
+ * 4 CONEJO
+ * 5 SOMBRERERO
+ * 6 GATO
+ */
 
 package vista;
 
