@@ -347,13 +347,50 @@ public class MainMenu extends PApplet {
 	
 	public void mousePressed () {
 
-	
-
-	} //MOUSEPRESSED
-
-	//////////////////////////////////////////METHODS/////////////////////////////////////////////
-	
-
+		switch (screen) {
+		
+		//START SCREEN 
+		case 1:
+			if (mouseX > 484 && mouseX < 484 + 233 && mouseY > 551 && mouseY < 551 + 91) //START BUTTON 
+				screen = 2; 
+			break;
+		
+		//INTRO SCREEN
+		case 2:
+			if (mouseX > 858 && mouseX < 858 + 233 && mouseY > 608 && mouseY < 608 + 91) //NEXT BUTTON
+				screen = 3; 
+			if (mouseX > 66 && mouseX < 66 + 67 && mouseY > 89 && mouseY < 89 + 63) //BACK BUTTON
+				screen = 1;
+			break;
+			
+		//INTRO 2
+		case 3:
+			if (mouseX > 858 && mouseX < 858 + 233 && mouseY > 608 && mouseY < 608 + 91) //NEXT BUTTON
+				screen = 4;
+			if (mouseX > 66 && mouseX < 66 + 67 && mouseY > 89 && mouseY < 89 + 63) //BACK BUTTON
+				screen = 2;
+			break;
+			
+		//INTRO 3
+		case 4:
+			if (mouseX > 858 && mouseX < 858 + 233 && mouseY > 608 && mouseY < 608 + 91) //NEXT BUTTON
+				screen = 5;
+			if (mouseX > 66 && mouseX < 66 + 67 && mouseY > 89 && mouseY < 89 + 63) //BACK BUTTON
+				screen = 3;
+			break;
+			
+		//STAGE 1
+		case 5:
+			if (mouseX > 915 && mouseX < 915 + 203 && mouseY > 175 && mouseY < 175 + 593) //CLIC ON ALICE = NEXT SCREEN
+				screen = 6;
+			break;
+			
+		//STAGE 2
+		case 6:
+			if (mouseX > 1042 && mouseX < 1042 + 90 && mouseY > 83 && mouseY < 83 + 70) //NEXT BUTTON
+					screen = 7;
+			break;		
+			
 	public void showDialogues () {
 
 	} //dilogues
