@@ -342,7 +342,6 @@ public class MainMenu extends PApplet {
 
 		} // end switch 
 	} // end draw
-	
 
 	
 	public void mousePressed () {
@@ -389,31 +388,331 @@ public class MainMenu extends PApplet {
 		case 6:
 			if (mouseX > 1042 && mouseX < 1042 + 90 && mouseY > 83 && mouseY < 83 + 70) //NEXT BUTTON
 					screen = 7;
-			break;		
+			break;																											
+	
+/****************************************************** GAME-PLAY SCREEN **********************************************************/																																
+
+		//CLICKCOUNTERS
+		case 7:
+		if (mouseX > 660 && mouseX < 660 + 130 && mouseY > 400 && mouseY < 400 + 100) { //TEAPOD
+				clickcounter1 ++;
+			} 
+
+		if (mouseX > 600 && mouseX < 600 + 203 && mouseY > 234 && mouseY < 234 + 169) { //ALICE
+				clickcounter2 ++;
+			}
+		if (mouseX > 62 && mouseX < 62 + 155 && mouseY > 281 && mouseY < 281 + 244) { //BUNNY
+			clickcounter3 ++;
+		}
+		if (mouseX > 272 && mouseX < 272 + 163 && mouseY > 159 && mouseY < 159 + 322) { //MAD HATTER
+			clickcounter4 ++;
+		}
+		if (mouseX > 724 && mouseX < 724 + 442 && mouseY > 456 && mouseY < 456 + 219) { //CAT
+			clickcounter5 ++;
+		}
+
+	///CLICS 
+		//ON TEAPOT	
+		if (mouseX > 660 && mouseX < 660 + 130 && mouseY > 400 && mouseY < 400 + 100 && clickcounter1 %2 == 1 ){
+				teapot = true;
+				dialogue3 = true;
+			}
+		if (mouseX > 660 && mouseX < 660 + 130 && mouseY > 400 && mouseY < 400 + 100 && clickcounter1 %2 == 0 ){
+				teapot = false;
+				dialogue3 = false;
+			}
+		//ON ALICE	
+		if (alice == false && clickcounter2 == 1 && mouseX > 600 && mouseX < 600 + 203 && mouseY > 234 && mouseY < 234 + 169) {
+				alice = true;
+				dialogue4 = true;
+			}
 			
+		if (alice == true && clickcounter2 == 2 && mouseX > 600 && mouseX < 600 + 203 && mouseY > 234 && mouseY < 234 + 169) {
+				alice = true;
+				dialogue5 = true;
+			}
+		//ON BUNNY	
+		if (bunny == false && clickcounter3 == 1 && mouseX > 62 && mouseX < 62 + 155 && mouseY > 281 && mouseY < 281 + 244) {
+				bunny = true;
+				dialogue6 = true;
+			}
+				
+			if (bunny == true && clickcounter3 == 2 && mouseX > 62 && mouseX < 62 + 155 && mouseY > 281 && mouseY < 281 + 244) {
+				bunny = true;
+				dialogue7 = true;
+			}
+		//ON MAD HATTER	
+		if (madhat == false && clickcounter4 == 1 && mouseX > 272 && mouseX < 272 + 163 && mouseY > 159 && mouseY < 159 + 322) {
+				madhat = true;
+				dialogue8 = true;
+			}
+					
+		if (madhat == true && clickcounter4 == 2 && mouseX > 272 && mouseX < 272 + 163 && mouseY > 159 && mouseY < 159 + 322) {
+				madhat = true;
+				dialogue9 = true;
+			}
+		if (madhat == true && clickcounter4 == 3 && mouseX > 272 && mouseX < 272 + 163 && mouseY > 159 && mouseY < 159 + 322) {
+				madhat = true;
+				dialogue10 = true;
+			}	
+		if (madhat == true && clickcounter4 == 4 && mouseX > 272 && mouseX < 272 + 163 && mouseY > 159 && mouseY < 159 + 322) {
+				madhat = true;
+				dialogue11 = true;
+			}	
+		//ON CAT
+		if (mouseX > 724 && mouseX < 724 + 442 && mouseY > 456 && mouseY < 456 + 219 && clickcounter5 %2 == 1 ){
+				cat = true;
+				dialogue12 = true;
+			}
+		if (mouseX > 724 && mouseX < 724 + 442 && mouseY > 456 && mouseY < 456 + 219 && clickcounter5 %2 == 0 ){
+				cat = false;
+				dialogue12 = false;
+			}
+		
+		//next button
+		if (teapot == true && alice == true && bunny == true && madhat == true && cat == true
+				&& clickcounter5 ==1
+				&& mouseX > 1042 && mouseX < 1042 + 90 && mouseY > 83 && mouseY < 83 + 70){
+			screen = 8;
+		}
+			break;
+			
+		case 8:
+			//END GAME
+			if (mouseX > 483 && mouseX < 483 + 233 && mouseY > 566 && mouseY < 566 + 54){//EXIT BUTTON
+				exit();	
+			}	
+			break;
+		} //Switch
+	} //mouse pressed
+
+/****************************************************** METHODS **********************************************************/
+	
 	public void showDialogues () {
+		
+		PImage dialogues = null ;//DIALOGUE ON SCREEN
+		//DIALOG OF TEAPOT
+		if (dialogue3 == true && teapot == true && alice == false && bunny == false && madhat == false && cat == false) { 
+			dialogues = dialogue3img;
+		}
+		//DIALOGS FOR ACILCE 1
+		if (dialogue4 == true && teapot == true && alice == true && bunny == false && madhat == false && cat == false) { 
+			dialogues = dialogue4img;
+		}
+		//DIALOGS FOR ACILCE 2
+		if (dialogue5 == true && teapot == true && alice == true && bunny == false && madhat == false && cat == false) { 
+			dialogues = dialogue5img;
+		}
+		//DIALOGS FOR BUNNY 1
+		if (dialogue6 == true && teapot == true && alice == true && bunny == true  && madhat == false && cat == false) { 
+			dialogues = dialogue6img;
+		}
+		//DIALOGS FOR BUNNY 2
+		if (dialogue7 == true && teapot == true && alice == true && bunny == true && madhat == false && cat == false) { 
+			dialogues = dialogue7img;
+		}
+		//DIALOGS FOR MAD HATTER 1
+		if (dialogue8 == true && teapot == true && alice == true && bunny == true && madhat == true && cat == false) { 
+			dialogues = dialogue8img;
+		}
+		//DIALOGS FOR MAD HATTER 2
+		if (dialogue9 == true && teapot == true && alice == true && bunny == true && madhat == true && cat == false) { 
+			dialogues = dialogue9img;
+		}
+		//DIALOGS FOR MAD HATTER 3
+		if (dialogue10 == true && teapot == true && alice == true && bunny == true && madhat == true && cat == false) { 
+			dialogues = dialogue10img;
+		}
+		//DIALOGS FOR MAD HATTER 4
+		if (dialogue11 == true && teapot == true && alice == true && bunny == true && madhat == true && cat == false) { 
+			dialogues = dialogue11img;
+		}
+		//DIALOGS FOR CAT
+		if (dialogue12 == true && teapot == true && alice == true && bunny == true && madhat == true && cat == true) { 
+			dialogues = dialogue12img;
+		}
+		
+		if (dialogues != null) {		
+			image (dialogues,0,0); 
+		}
 
-	} //dilogues
-
-	public void catExpressions () {
-
-	}//catex
+	} //END
 
 	public void aliceExpressions () {
-
-	
-	}//aliceex
+		
+		//ANOYED
+		PImage aliceFace= null;
+		if (teapot == true && alice == true && bunny == false && madhat == false && cat == false && clickcounter2 ==2) { 
+			aliceFace = alice4;
+		}
+		if (teapot == true && alice == true && bunny == true && madhat == false && cat == false && clickcounter3 ==1) { 
+			aliceFace = alice4;
+		}
+		if (teapot == true && alice == true && bunny == true && madhat == false && cat == false && clickcounter3 ==2) { 
+			aliceFace = alice4;
+		}
+		if (teapot == true && alice == true && bunny == true && madhat == true && cat == false && clickcounter4 ==1) { 
+			aliceFace = alice4;
+		}
+		//HAPPY
+		if (teapot == true && alice == true && bunny == true && madhat == true && cat == false && clickcounter4 ==2) { 
+			aliceFace = alice3;
+		}
+		if (teapot == true && alice == true && bunny == true && madhat == true && cat == false && clickcounter4 ==3) { 
+			aliceFace = alice3;
+		}
+		if (teapot == true && alice == true && bunny == true && madhat == true && cat == false && clickcounter4 ==4) { 
+			aliceFace = alice5;
+		}
+		//CAT FINAL
+		if (teapot == true && alice == true && bunny == true && madhat == true && cat == true && clickcounter5 ==1) { 
+			aliceFace =  alice5; 
+		}
+		
+		if (aliceFace != null) {		
+			image (aliceFace,0,0);
+			}
+	}//END
 
 	public void bunnyExpressions () {
-
 		
-	}//bunnyex
+		//ENOJO
+		PImage bunnyFace= null;
+		if (teapot == true && alice == true && bunny == false && madhat == false && cat == false && clickcounter3 ==2) { 
+			bunnyFace = bunny4;
+		}
+		if (teapot == true && alice == true && bunny == true && madhat == false && cat == false && clickcounter3 ==1) { 
+			bunnyFace = bunny4;
+		}
+		//ASHAMED
+		if (teapot == true && alice == true && bunny == true && madhat == true && cat == false && clickcounter4 ==4) { 
+			bunnyFace = bunny5;
+		}
+		//CAT FINAL
+		if (teapot == true && alice == true && bunny == true && madhat == true && cat == true && clickcounter5 ==1) { 
+			bunnyFace = bunny5;
+		}
+		if (bunnyFace != null) {		
+			image (bunnyFace,0,0);
+			}
+
+	}//END
 
 	public void madhatExpressions () {
-
 		
-	}//madex
+		//SPEAKING
+		PImage madhatFace= null;
+		if (teapot == true && alice == true && bunny == true && madhat == true && cat == false && clickcounter4 ==1) { 
+			madhatFace = madhat4;
+		}
+		//EYES CLOSED
+		if (teapot == true && alice == true && bunny == true && madhat == true && cat == false && clickcounter4 ==2) { 
+			madhatFace = madhat5;
+		}
+		//lIL MAD
+		if (teapot == true && alice == true && bunny == true && madhat == true && cat == false && clickcounter4 ==3) { 
+			madhatFace = madhat3;
+		}
+		//SUPER MAD
+		if (teapot == true && alice == true && bunny == true && madhat == true && cat == false && clickcounter4 ==4) { 
+			madhatFace = madhat6;
+		}
+		//CAT FINAL
+		if (teapot == true && alice == true && bunny == true && madhat == true && cat == true && clickcounter5 ==1) { 
+			madhatFace = madhat6;
+		}
+		
+		if (madhatFace != null) {		
+			image (madhatFace,0,0);
+			}
+	}//END
 	
+	public void catFace () {
+		
+		PImage Now= null ;
+		//APPEAR1
+		if (teapot == false && alice == false && bunny == false && madhat == false && cat == false) {
+			Now = cat1; 
+		}
+		if (teapot == true && alice == false && bunny == false && madhat == false && cat == false) {
+			Now = cat1; 
+		}
+		if (teapot == true && alice == true && bunny == false && madhat == false && cat == false) {
+			Now = cat1; 
+		}
+		if (teapot == true && alice == true && bunny == true && madhat == false && cat == false) {
+			Now = cat1; 
+		}
+		if (teapot == true && alice == true && bunny == true && madhat == true && cat == false) {
+			Now = cat1; 
+		}
+		if (teapot == true && alice == true && bunny == true && madhat == true && cat == true) {
+			Now = cat1; 
+		}
+		//DESAPAIR
+		if (teapot == true && alice == true && bunny == true && madhat == true && cat == true && clickcounter5 ==1 ) {
+			Now = cat2; 
+		}
+		
+		if (Now != null) {		
+			image (Now,0,0);
+		}		
+	}//END
 	
-	
-} //MAINMENU
+	public void showSelectedItems () {
+		
+		if (teapot == false && alice == false && bunny == false && madhat == false && cat == false
+				&& mouseX > 660 && mouseX < 660 + 130 && mouseY > 400 && mouseY < 400 + 100) {
+				image (sel_teapot,0,0); //teapot selection
+		}
+		
+		if (teapot == true && alice == false && bunny == false && madhat == false && cat == false
+				&& clickcounter1 ==1	
+				&& mouseX > 600 && mouseX < 600 + 203 && mouseY > 234 && mouseY < 234 + 169) {
+				image (sel_alice2,0,0); // ALICE selection 1
+		}
+		if (teapot == true && alice == true && bunny == false && madhat == false && cat == false
+				&& clickcounter2 ==1	
+				&& mouseX > 600 && mouseX < 600 + 203 && mouseY > 234 && mouseY < 234 + 169) {
+				image (sel_alice2,0,0); // ALICE selection 2
+			}
+		if (teapot == true && alice == true && bunny == false && madhat == false && cat == false
+				&& clickcounter2 ==2	
+				&& mouseX > 62 && mouseX < 62 + 155 && mouseY > 281 && mouseY < 281 + 244) { 
+				image (sel_bunny1,0,0); // bunny selection 1
+		}
+		if (teapot == true && alice == true && bunny == true && madhat == false && cat == false
+				&& clickcounter3 ==1	
+				&& mouseX > 62 && mouseX < 62 + 155 && mouseY > 281 && mouseY < 281 + 244) { 
+				image (sel_bunny1,0,0); // bunny selection 2
+		}
+		if (teapot == true && alice == true && bunny == true && madhat == false && cat == false
+				&& clickcounter3 ==2	
+				&& mouseX > 272 && mouseX < 272 + 163 && mouseY > 159 && mouseY < 159 + 322) { 
+				image (sel_mad,0,0); // mad hater selection 2
+		}
+		if (teapot == true && alice == true && bunny == true && madhat == true && cat == false
+				&& clickcounter4 ==1	
+				&& mouseX > 272 && mouseX < 272 + 163 && mouseY > 159 && mouseY < 159 + 322) { 
+				image (sel_mad,0,0); // mad hater selection 2
+		}
+		if (teapot == true && alice == true && bunny == true && madhat == true && cat == false
+				&& clickcounter4 ==2	
+				&& mouseX > 272 && mouseX < 272 + 163 && mouseY > 159 && mouseY < 159 + 322) { 
+				image (sel_mad,0,0); // mad hater selection 2
+		}
+		if (teapot == true && alice == true && bunny == true && madhat == true && cat == false
+				&& clickcounter4 ==3	
+				&& mouseX > 272 && mouseX < 272 + 163 && mouseY > 159 && mouseY < 159 + 322) { 
+				image (sel_mad,0,0); // mad hater selection 2
+		}
+		if (teapot == true && alice == true && bunny == true && madhat == true && cat == false
+				&& clickcounter4 ==4	
+				&& mouseX > 724 && mouseX < 724 + 442 && mouseY > 456 && mouseY < 456 + 219) {
+				image (sel_cat,0,0); // cat  
+		}
+	}//END
+			
+} //END GENERAL MAINMENU
+
+
