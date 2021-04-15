@@ -212,34 +212,137 @@ public class MainMenu extends PApplet {
 	public void draw () {
 
 		switch (screen) {
-
 		case 1: 
 			image (start, 0,0);
+			if (mouseX > 484 && mouseX < 484 + 233 && mouseY > 551 && mouseY < 551 + 91) { //show the cursor on the button
+				cursor(HAND);
+			} else {
+				cursor(ARROW);
+		}		
 			break;
+			
 		case 2:
 			image (intro, 0,0);
+			if ((mouseX > 858 && mouseX < 858 + 233 && mouseY > 608 && mouseY < 608 + 91) //show the cursor on the next button
+				|| (mouseX > 66 && mouseX < 66 + 67 && mouseY > 89 && mouseY < 89 + 63)) {//show the cursor on the back button
+				cursor(HAND);
+			} else {
+				cursor(ARROW);
+			}
+			
 			break;
 		case 3:
 			image (intro2, 0,0);
+			if ((mouseX > 858 && mouseX < 858 + 233 && mouseY > 608 && mouseY < 608 + 91) //show the cursor on the next button
+				|| (mouseX > 66 && mouseX < 66 + 67 && mouseY > 89 && mouseY < 89 + 63)) {//show the cursor on the back button
+					cursor(HAND);
+				} else {
+					cursor(ARROW);
+				}
+			
 			break;
 		case 4:
 			image (intro3, 0,0);
+			if ((mouseX > 858 && mouseX < 858 + 233 && mouseY > 608 && mouseY < 608 + 91) //show the cursor on the next button
+				|| (mouseX > 66 && mouseX < 66 + 67 && mouseY > 89 && mouseY < 89 + 63)) {//show the cursor on the back button
+					cursor(HAND);
+				} else {
+					cursor(ARROW);
+				}
 			break;
+		
 		case 5:
-		
-			break;
-		
-		case 6:
-		
+		//STAGE1	
+			/*** THE PARALLAX THING ***/ 
+			//its the middle of the whole canvas 1200/2 =600 so -600 
+			float first=map(mouseX,0,width,0,-600);
+			image(parallax,first+0,0,1793,806);
+			image (chairs,0,0);//BACKGROUND ITEMS
+			image (stage1, -6,0);//CHARACTERS FIRST APPEARENCE
+			
+			if (teapot == false && alice == false && bunny == false && madhat == false && cat == false
+					&& mouseX > 915 && mouseX < 915 + 203 && mouseY > 175 && mouseY < 175 + 593) {
+					image (sel_alice1,-5,0); //ALICE stage 1 selection
+			}
 			break;
 			
-////////////////////////////////////////////////GAME-PLAY SCREEN////////////////////////////////////////////	
+		case 6:
+		//STAGE2
+			// THE PARALLAX THING
+				float second=map(mouseX,0,width,0,-600);
+				image(parallax,second+0,0,1793,806);
+				image (chairs,0,0);//BACKGROUND ITEMS
+				
+				//CHARACTERS SECOND APPEARENCE
+				image (alice2, 0,0);
+				image (madhat2, 0,0);
+				image (bunny2, 0,0);
+				image (table,0,0);
+				image (teapot1,0,0);
+				image (stage2,0,0,1200,806);
+				image (cat1,0,0);//CAT
+				image (frame,0,0);
+			
+				if (mouseX > 1042 && mouseX < 1042 + 90 && mouseY > 83 && mouseY < 83 + 70) {//show the cursor on the next button
+					cursor(HAND);
+				} else {
+					cursor(ARROW);
+				}
+					
+				break;
+				
+			
+/****************************************************** GAME-PLAY SCREEN **********************************************************/	
+		
 		case 7:
 
-	
+		//THE PARALLAX THING
+			float last=map(mouseX,0,width,0,-600);
+			image(parallax,last+0,0,1793,806);
+			image (chairs,0,0);//BACKGROUND ITEMS
+			
+			//CHARACTERS FIRST APPEARENCE
+			image (alice2, 0,0);
+			image (madhat3, 0,0);
+			image (bunny3, 0,0);
+			
+			//CHARACTERS EXPRESSIONS
+			bunnyExpressions();
+			madhatExpressions();
+			aliceExpressions();
+			
+			// ITEMS
+			image (table,0,0);
+			image (teapot1,0,0);
+			image (catchair,0,0);
+			catFace(); //CAT
+			showDialogues(); //DIALOGUES
+			showSelectedItems(); //SHOW ITEMS SELECTIONS
+			image (frame,0,0);  //GAME WHITE FRAME
+			
+			if (teapot == true && alice == true && bunny == true && madhat == true && cat == true 	//show cursor of next button
+					&& clickcounter5 ==1	
+					&& mouseX > 1042 && mouseX < 1042 + 90 && mouseY > 83 && mouseY < 83 + 70) {
+				cursor(HAND);
+			} else {
+				cursor(ARROW);	
+			}
 			break;
-		} // END SWITCH
-	} // DRAW
+			
+		case 8:
+			//END GAME
+			image (end,0,0);
+	
+			if (mouseX > 483 && mouseX < 483 + 233 && mouseY > 566 && mouseY < 566 + 54) {//FINAL BUTTON EXIT CURSOR
+				cursor(HAND);
+			} else {
+				cursor(ARROW);
+			}
+			break;
+
+		} // end switch 
+	} // end draw
+	
 
 	
 	public void mousePressed () {
